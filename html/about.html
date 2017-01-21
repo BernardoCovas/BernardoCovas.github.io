@@ -1,16 +1,10 @@
-<div style="max-height: 500px; overflow: hidden">
-  <img src="src/1.jpg" style="max-width: 100%; min-width: 100%"/>
+<div class="image_header_container">
+  <img class="page_header_image" src="src/1.jpg"/>
 </div>
-<div>
-  <h1
-  class="col-md-3 col-md-offset-3"
-  style="font-family: 'Times New Roman', Times, serif;
-         margin-top: 100px;
-         margin-bottom:70px"
-  >About Marta</h1>
 
-  <p id="about_txt" class="col-md-6 col-md-offset-3"></p>
-</div>
+<h1 class="text_header col-md-offset-2 col-md-6">About Marta</h1>
+
+<p id="about_txt" class="col-md-6 col-md-offset-3"></p>
 
 <script>
 $("#about_txt").load("src/about.txt");
