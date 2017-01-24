@@ -1,0 +1,21 @@
+<div class="projects debug">
+  <div class="text debug" style="font-size: 40px; font-family: Oswald; color: #999; padding-top: 100px">SOME OF OUR PROJECTS</div>
+  <div id="projects-description" class="text debug"></div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+<script>
+  $(this).ready(function()
+  {
+    $("#projects-description").load("/src/files/projects-description.txt");
+  });
+</script>

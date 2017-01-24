@@ -13,9 +13,7 @@
     $(".nav-btn").removeClass("selected");
     $(this).addClass("selected");
 
-    $('html, body').animate({
-    scrollTop: $('#' + this.id.replace("_nav", "")).offset().top
-  }, 500);
+    $('html, body').animate({ scrollTop: $('#' + this.id.replace("_nav", "")).offset().top }, 500);
 
   });
 

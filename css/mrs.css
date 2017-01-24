@@ -115,6 +115,7 @@ nav
 .team
 {
   padding-top: 120px;
+  padding-bottom: 120px;
   background-color: white;
   color: var(--color-back);
   font-family: Oswald;
@@ -151,6 +152,24 @@ nav
 {
   background: var(--color-main);
   color: white;
+}
+
+.projects
+{
+  height: 1000px;
+  color: white;
+}
+
+.projects ul
+{
+
+}
+
+.projects ul li
+{
+  height: 200px;
+  width: 500px;
+  border: 2px solid white;
 }
 
 @media (max-width: 600px)
