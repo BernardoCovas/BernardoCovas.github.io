@@ -4,7 +4,7 @@ $(document).ready(function()
 
   $("#home-header").load("/html/elements/header.html");
 
-  $("#nav").load("/html/elements/nav.html");
+  //$("#nav").load("/html/elements/nav.html"); //wip
 
   $("#page").load("/html/views/description.html");
 
@@ -25,23 +25,4 @@ $(window).resize(function()
   $(".header-container").height($(window).height());
   $(".header-container").width($(window).width());
 
-  if($(window).scrollTop() >= $(window).height())
-  {
-    $("#nav").css("top", "0");
-  }
-  else
-    $("#nav").css("top", $(window).height() - $(window).scrollTop());
-
 });
-
-
-$(window).scroll(function()
-{
-  if($(window).scrollTop() >= $(window).height())
-  {
-    $("#nav").css("top", "0");
-  }
-  else
-    $("#nav").css("top", $(window).height() - $(window).scrollTop());
-
-})

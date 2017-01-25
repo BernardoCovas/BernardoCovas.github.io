@@ -1,4 +1,4 @@
-<nav>
+<nav class="debug">
   <div id="home-header_nav" class="nav-btn selected"></div>
   <div id="page_nav" class="nav-btn"></div>
   <div id="team_nav" class="nav-btn"></div>
@@ -14,7 +14,6 @@
     $(this).addClass("selected");
 
     $('html, body').animate({ scrollTop: $('#' + this.id.replace("_nav", "")).offset().top }, 500);
-
   });
 
 

@@ -14,9 +14,10 @@ body
 
 nav
 {
+    font-size: 0px;
     text-align: center;
-    position: fixed;
-    width: 100%;
+    background-color: var(--color-back);
+    padding-top: 10px;
 }
 
 .content
@@ -97,7 +98,7 @@ nav
 
 .nav-btn
 {
-  margin-top: 20px;
+  margin: 2px;
   width: 200px;
   height: 5px;
   display: inline-block;
@@ -124,6 +125,8 @@ nav
 
 .team ul
 {
+  max-width: 1500px;
+  margin: auto;
   font-size: 0px;
   padding: 0;
   padding-top: 0px;
@@ -132,20 +135,17 @@ nav
 
 .team ul li
 {
-  vertical-align: top;
+  white-space: nowrap;
+  line-height: 200px;
   list-style-type: none;
   font-size: 16px;
   height: 200px;
   width: 480px;
   margin: 5px;
+  font-size: 60px;
   border: 2px solid var(--color-back);
   display: inline-block;
   transition: 0.3s;
-}
-
-.team ul li p
-{
-  font-size: 60px;
 }
 
 .team ul li:hover
@@ -154,23 +154,58 @@ nav
   color: white;
 }
 
+.projects-container
+{
+  max-width: 1500px;
+  margin: auto;
+  padding-top: 100px;
+}
+
 .projects
 {
-  height: 1000px;
-  color: white;
+  padding-bottom: 120px;
+  background-color: var(--color-back);
+  color: var(--color-main);
+  font-family: Oswald;
+  font-size: 60px;
 }
 
 .projects ul
 {
-
+  margin: auto;
+  max-width: 1500px;
+  font-size: 0px;
+  padding: 0;
+  padding-top: 0px;
+  text-align: center;
 }
 
 .projects ul li
 {
+  white-space: nowrap;
+  line-height: 200px;
+  list-style-type: none;
+  font-size: 16px;
   height: 200px;
-  width: 500px;
-  border: 2px solid white;
+  width: 480px;
+  margin: 5px;
+  font-size: 60px;
+  border: 2px solid var(--color-back);
+  display: inline-block;
+  transition: 0.3s;
 }
+
+.projects ul li:hover
+{
+  background: var(--color-main);
+  color: white;
+}
+
+#projects-description
+{
+  color: white;
+}
+
 
 @media (max-width: 600px)
 {
@@ -180,8 +215,23 @@ nav
   }
 }
 
-@media (max-height: 550px)
+@media (max-width: 510px)
 {
+  .team ul li
+  {
+    width: 180px;
+    height: 100px;
+    font-size: 30px;
+    line-height: 100px;
+  }
+
+  .projects ul li
+  {
+    width: 180px;
+    height: 100px;
+    font-size: 30px;
+    line-height: 100px;
+  }
 
   .subtitle
   {
