@@ -2,6 +2,8 @@
   --color-main: #009688;
   --color-sec : #004D40;
   --color-back: #212121;
+  --window-width: 0px;
+  --window-hight: 0px;
 }
 
 body
@@ -25,7 +27,7 @@ nav
   background-color: var(--color-back);
 }
 
-.header-container
+.header
 {
   background-color: var(--color-main);
   background-image: url("/src/files/1.jpg");
