@@ -12,6 +12,8 @@ $(document).ready(function()
 
   $("#projects").load("/html/views/projects.html");
 
+  //$("#form").load("/html/elements/form.html");
+
   $("#debug").click(function()
   {
     console.log("clicked");

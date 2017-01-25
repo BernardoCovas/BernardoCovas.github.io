@@ -135,6 +135,7 @@ nav
 
 .team ul li
 {
+  position: relative;
   white-space: nowrap;
   line-height: 200px;
   list-style-type: none;
@@ -146,6 +147,17 @@ nav
   border: 2px solid var(--color-back);
   display: inline-block;
   transition: 0.3s;
+}
+
+.team ul li a
+{
+    position: absolute; 
+    line-height: 0px; 
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 30px;
+    color: white;
 }
 
 .team ul li:hover
@@ -206,6 +218,19 @@ nav
   color: white;
 }
 
+.form
+{
+  opacity: 0;
+  top:0;
+  left: 0;
+  border-radius: 10px;
+  position: fixed;
+  height: 100px;
+  width: 200px;
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
 
 @media (max-width: 600px)
 {
@@ -233,14 +258,14 @@ nav
     line-height: 100px;
   }
 
+  .team ul li a
+{
+    font-size: 20px;
+}
+
   .subtitle
   {
     margin-bottom: 100px;
   }
 }
 
-
-.debug
-{
-
-}

@@ -19,12 +19,21 @@ $(this).ready(function()
   {
     $('html, body').animate({ scrollTop: $(window).height() }, 500);
   });
+  
+  $("#contact").click(function()
+  {
+    $('html, body').animate({ scrollTop: $(".team").position().top }, 500);
+  });
+
+  $(window).resize(function()
+  {
+    $(".header-container").height($(window).height());
+    $(".header-container").width($(window).width());
+
+  });
+
+  //click
+
 });
 
-$(window).resize(function()
-{
-  $(".header-container").height($(window).height());
-  $(".header-container").width($(window).width());
-
-});
 </script>
