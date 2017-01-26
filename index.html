@@ -18,50 +18,49 @@
 
     <div id="debug" style="height: 100px; width: 100px; position: fixed;"></div>
 
-    <div id="content" class="content debug">
+    <div id="content" class="content">
 
 
       <!--header-->
-      <div class="header debug">
-        <div class="title-container debug">
-          <div class="title debug">MARTA ROCHA DOS SANTOS</div>
-          <div class="subtitle debug">Interior Design and Image Consulting</div>
-          <div id="contact"class="btn debug">Contact</div>
-          <div id="seemore" class="btn debug">See More</div>
+      <div class="header">
+        <div class="title-container">
+          <div class="title">MARTA ROCHA DOS SANTOS</div>
+          <div class="subtitle">Interior Design and Image Consulting</div>
+          <div id="contact"class="btn">Contact</div>
+          <div id="seemore" class="btn">See More</div>
         </div>
       </div>
 
 
       <!--description-->
       <div class="description debgug">
-        <div class="text debug" style="font-size: 40px; font-family: Oswald; color: #999;">ATELIER'S DESCRIPTION</div>
-        <div id="description-text" class="text debug"></div>
+        <div class="text" style="font-size: 40px; font-family: Oswald; color: #999;">ATELIER'S DESCRIPTION</div>
+        <div id="description-text" class="text"></div>
       </div>
 
 
       <!--the team-->
-      <div class="team debug">
-        <ul class=debug>
+      <div class="team">
+        <ul>
           <li style="border: 2px solid rgba(0, 0, 0, 0)">THE TEAM</li>
           <li>MARTA<a>mrs@mrs-id.com</a></li>
-          <li>DULCE<a>mrs@mrs-id.com</a></li>
-          <li>JOEL<a>mrs@mrs-id.com</a></li>
-          <li>JORGE<a>mrs@mrs-id.com</a></li>
-          <li>INÊS<a>mrs@mrs-id.com</a></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
 
 
       <!--projects<-->
       <div style="max-width: 1000px; margin: auto">
-        <div class="debug" style="font-size: 40px; font-family: Oswald; color: #999; padding-top: 100px;">PROJECTS</div>
-        <div id="projects-description" class="text debug">projects-description</div>
-        <hr style="margin: 100px 0;"/>
+        <div style="font-size: 40px; font-family: Oswald; color: #999; padding-top: 100px;">PROJECTS</div>
+        <div id="projects-description" class="text">projects-description</div>
+        <hr style="margin: auto; width: 90vw; max-width: 1000px"/>
       </div>
 
       <div class="projects">
-        <ul class="debug">
-          <li>HOUSE</li>
+        <ul>
           <li>HOUSE</li>
           <li>HOUSE</li>
           <li>HOUSE</li>
@@ -81,8 +80,6 @@
     <script>
     $(document).ready(function()
     {
-      $(".header-container").height($(window).height());
-      $(".header-container").width($(window).width());
       $("#description-text").load("/src/files/description.txt");
       $("#projects-description").load("/src/files/projects-description.txt");
 
@@ -99,12 +96,6 @@
       $("#contact").click(function()
       {
         $('html, body').animate({ scrollTop: $(".team").position().top }, 500);
-      });
-
-      $(window).resize(function()
-      {
-        $(".header-container").height($(window).height());
-        $(".header-container").width($(window).width());
       });
 
     });
