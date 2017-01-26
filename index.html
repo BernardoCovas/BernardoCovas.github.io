@@ -55,8 +55,8 @@
       <!--projects<-->
       <div style="max-width: 1000px; margin: auto">
         <div style="font-size: 40px; font-family: Oswald; color: #999; padding-top: 100px;">PROJECTS</div>
-        <div id="projects-description" class="text">projects-description</div>
-        <hr style="margin: auto; width: 90vw; max-width: 1000px"/>
+        <div id="projects-description" class="text"></div>
+        <hr style="margin: auto; width: 90vw; max-width: 1500px"/>
       </div>
 
       <div class="projects">
@@ -88,11 +88,11 @@
         $('html, body').animate({ scrollTop: $(window).height() }, 500);
       });
 
-       $("#debug").click(function()  {
+      $("#debug").click(function()  {
         console.log("Debugging");
         $(".debug").css("border", "1px solid red");
       });
-      
+
       $("#contact").click(function()
       {
         $('html, body').animate({ scrollTop: $(".team").position().top }, 500);

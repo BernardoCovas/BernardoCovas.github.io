@@ -93,7 +93,7 @@ body
 .team
 {
   background-color: white;
-  color: var(--color-back);
+  color: white;
   font-family: Oswald;
 }
 
@@ -158,8 +158,9 @@ body
 
 .team ul li:hover
 {
-  background: var(--color-main);
+  background-color: var(--color-main);
   color: white;
+  background-image: none !important;
 }
 
 .projects
