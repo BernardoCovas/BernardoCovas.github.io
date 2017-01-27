@@ -12,6 +12,33 @@ body
   background-color: var(--color-back);
 }
 
+.form
+{
+  position: fixed;
+  width: 95vw;
+  height: 95vh;
+  top: 50vh;
+  left: 50vw;
+  background-color: rgba(255, 255, 255, 0.98);
+  margin: auto;
+  transform: translate(-50%, -50%);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+#form-clear
+{
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+#form-clear:hover
+{
+  color: red;
+}
+
 .content
 {
   background-color: var(--color-back);
@@ -107,7 +134,7 @@ body
   margin: auto;
 }
 
-.team ul li
+.team ul li div
 {
   position: relative;
   white-space: nowrap;
@@ -124,16 +151,18 @@ body
   display: inline-block;
   margin: 0.2vw;
   transition: 0.3s;
+  z-index: 0;
 }
 
 .team ul li a
 {
+  position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%, 0);
-  position: absolute;
   font-size: 40%;
   color: white;
+  z-index: 0;
 }
 
 @media (min-width: 1333px)
