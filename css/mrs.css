@@ -17,34 +17,61 @@ body
   position: fixed;
   width: 95vw;
   height: 95vh;
-  top: 50vh;
-  left: 50vw;
-  background-color: rgba(255, 255, 255, 0.98);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   margin: auto;
-  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.98);
+  overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
   border-radius: 5px;
+  overflow: scroll;
 }
 
 .form div
 {
   position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   width: 90%;
   height: 90%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 40px auto;
+}
+
+.form div div
+{
+  position: relative;
+  float: right;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0 0 5vh 5vw;
+  width: 40vw;
+  height: 40vh;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
 }
 
 .form div h1
 {
+  display: inline-block;
   font-family: Oswald;
+  font-size: calc(4vw + 40px);
+  color: #444;
 }
 
 .form div p
 {
   font-family: Oswald;
+  font-size: calc(0.7vw + 10px);
 }
 
 .form i
@@ -83,7 +110,6 @@ body
   text-align: center;
   top: 50%;
   transform: translate(0, -50%);
-  pointer-events: none;
 }
 
 .title
@@ -95,10 +121,22 @@ body
 
 .subtitle
 {
-  margin-bottom: 35vh;
+  margin-bottom: calc((100vh - 500px) * 0.8);
   font-family: Oswald;
   font-size: 20px;
   color: #333;
+}
+
+@media (max-width: 600px)
+{
+  .title
+  {
+    font-size: 13vw;
+  }
+  .subtitle
+  {
+    font-size: 25px;
+  }
 }
 
 .btn
@@ -150,11 +188,10 @@ body
 .team ul
 {
   margin: auto;
-  padding: 50px 0;
+  padding: 10vh 0;
   font-size: 0px;
   text-align: center;
   max-width: 1500px;
-  margin: auto;
 }
 
 .team ul li
@@ -225,6 +262,7 @@ body
   .team ul li div
   {
     line-height: 20vw;
+    font-size: 7vw;
   }
 
   .team ul li a
@@ -242,55 +280,53 @@ body
 .projects
 {
   background-color: var(--color-back);
-  color: var(--color-main);
+  color: white;
   font-family: Oswald;
 }
 
 .projects ul
 {
   margin: auto;
+  padding: 10vh 0;
   font-size: 0px;
-  padding: 20vh 0;
   text-align: center;
   max-width: 1500px;
-  margin: auto;
 }
 
 .projects ul li
 {
   position: relative;
+  white-space: nowrap;
   height: 15vw;
   width: 30vw;
   max-width: 400px;
   max-height: 200px;
-  margin: 0px;
-  list-style-type: none;
-  vertical-align: top;
+  vertical-align: top; 
   display: inline-block;
-  margin: 0.2vw;
+  margin: 2px;
+  background-color: white;
+  background-size: cover;
+  z-index: 0;
 }
 
 .projects ul li div
 {
   position: absolute;
-  height: 100%;
-  width: 100%;
   background-color: var(--color-main);
-  white-space: nowrap;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
   font-size: 5vw;
   line-height: 15vw;
+  list-style-type: none;
+  vertical-align: top;
   transition: 0.3s;
-  opacity: 0;
-}
-
-.projects ul li div:hover
-{
-  opacity: 1;
+  z-index: 0;
 }
 
 @media (min-width: 1333px)
 {
-  .projects ul li
+  .projects ul li div
   {
     font-size: 66.65px;
     line-height: 200px;
@@ -303,43 +339,19 @@ body
   {
     width: 45vw;
     height: 20vw;
+  }
+
+  .projects ul li div
+  {
     line-height: 20vw;
     font-size: 7vw;
   }
 }
 
-.projects ul li:hover
-{
-  background-color: var(--color-main);
-  color: white;
-}
-
-#projects-description
+.projects ul li div:hover
 {
   color: white;
-}
-
-@media (max-width: 600px)
-{
-  .title
-  {
-    font-size: 13vw;
-  }
-  .subtitle
-  {
-    font-size: 25px;
-  }
-}
-
-@media (max-width: 510px)
-{
-  .projects ul li
-  {
-    width: 180px;
-    height: 100px;
-    font-size: 30px;
-    line-height: 100px;
-  } 
+  opacity: 1; 
 }
 
 .debug

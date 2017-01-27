@@ -17,15 +17,15 @@
   <body>
 
 
-    <div id="debug" style="height: 100px; width: 100px; position: fixed;"></div>
+    <div id="debug" style="height: 100px; width: 100px; position: fixed; z-index: 999;"></div>
 
     <div id="content" class="content">
 
       <!--form-->
       <div class="form" hidden>
-        <img id="form-profile">
         <div>
           <h1 id="form-title">Title</h1>
+          <div id="form-profile"></div>
           <p id="form-description">descripton</p>
         </div>
         <i class="material-icons">clear</i>
@@ -36,14 +36,14 @@
         <div class="title-container">
           <div class="title">MARTA ROCHA DOS SANTOS</div>
           <div class="subtitle">Interior Design and Image Consulting</div>
-          <div id="contact" class="btn">Contact</div>
           <div id="seemore" class="btn">See More</div>
+          <div id="contact" class="btn">Contact</div>
         </div>
       </div>
 
 
       <!--description-->
-      <div class="description debgug">
+      <div class="description">
         <div class="text" style="font-size: 40px; font-family: Oswald; color: #999;">ATELIER'S DESCRIPTION</div>
         <div id="description-text" class="text"></div>
       </div>
@@ -52,26 +52,27 @@
       <!--the team (bg images are automaticaly fetched on /profiles/'id'/'id'.jpg) -->
       <div class="team">
         <ul>
-          <li><div style="opacity: 1;">THE TEAM</div></li>
+          <li><div style="opacity: 1; background: transparent; color: #444;">THE TEAM</div></li>
           <li id="marta"><div>MARTA</div><a>mrs@mrs-id.com</a></li>
           <li id="dulce"><div>DULCE</div><a>dulce@mrs-id.com</a></li>
           <li id="joel"><div>JOEL</div><a>joel@mrs-id.com</a></li>
+          <li id="ines"><div>INÊS</div><a>ines@mrs-id.com</a></li>
+          <li id="jorge"><div>JORGE</div><a>jfp@mrs-id.com</a></li>
         </ul>
       </div>
 
 
-      <!--projects<-->
+      <!--projects-->
       <div style="max-width: 1000px; margin: auto">
         <div style="font-size: 40px; font-family: Oswald; color: #999; padding-top: 100px;">PROJECTS</div>
-        <div id="projects-description" class="text"></div>
+        <div id="projects-description" class="text" style="color: white"></div>
         <hr style="margin: auto; width: 90vw; max-width: 1000px"/>
       </div>
 
       <div class="projects">
         <ul>
-          <li><div>HOUSE</div><img /></li>
-          
-          <li>SEE MORE &raquo</li>
+          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div><a>mrs@mrs-id.com</a></li>
+          <li id="solplay"><div>SOLPAY</div><a>dulce@mrs-id.com</a></li>
         </ul>
       </div>
 
@@ -80,28 +81,28 @@
     
 
     <script src="jquery/jquery-3.1.1.min.js"></script>
-    <script src="js/mrs.js"></script>
 
     <script>
     $(document).ready(function()
     {
       //form
-      $(".team ul li").click(function()
+      $(".team ul li:gt(0)").click(function()
       {
-        $("#form-profile").attr("src", "profiles/" + this.id + "/" + this.id + ".jpg");
+        $("#form-profile").css("background-image", "url(profiles/" + this.id + "/profile.jpg)");
         $("#form-title").text(this.id.toUpperCase());
-        $(".form").show(300);
+        $("#form-description").load("/profiles/" + this.id + "/description.txt");
+        $(".form").fadeIn(150);
       });
 
       $(".form i").click(function()
       {
-        $(".form").hide(300);
+        $(".form").fadeOut(150);
       });
 
       //team
       $(".team ul li:gt(0)").each(function(i, elem)
       {
-        $(elem).css("background-image", "url(profiles/" + elem.id + "/" + elem.id + ".jpg)");
+        $(elem).css("background-image", "url(profiles/" + elem.id + "/profile.jpg)");
       });
 
       //header
@@ -120,6 +121,10 @@
       
       //projects
       $("#projects-description").load("/src/files/projects-description.txt");
+      $(".projects ul li").each(function(i, elem)
+      {
+        $(elem).css("background-image", "url(projects/" + elem.id + "/picture.jpg)");
+      });
 
       //debug
       $("#debug").click(function()  {
