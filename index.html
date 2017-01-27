@@ -24,7 +24,11 @@
       <!--form-->
       <div class="form" hidden>
         <img id="form-profile">
-        <p>descripton<i id="form-clear" class="material-icons">clear</i></p>
+        <div>
+          <h1 id="form-title">Title</h1>
+          <p id="form-description">descripton</p>
+        </div>
+        <i class="material-icons">clear</i>
       </div>
 
       <!--header-->
@@ -32,7 +36,7 @@
         <div class="title-container">
           <div class="title">MARTA ROCHA DOS SANTOS</div>
           <div class="subtitle">Interior Design and Image Consulting</div>
-          <div id="contact"class="btn">Contact</div>
+          <div id="contact" class="btn">Contact</div>
           <div id="seemore" class="btn">See More</div>
         </div>
       </div>
@@ -45,16 +49,13 @@
       </div>
 
 
-      <!--the team-->
+      <!--the team (bg images are automaticaly fetched on /profiles/'id'/'id'.jpg) -->
       <div class="team">
         <ul>
-          <li style="border: 2px solid rgba(0, 0, 0, 0)">THE TEAM</li>
-          <li style="background: url('profiles/marta/mara.jpg')"><div>MARTA</div><a href="">mrs@mrs-id.com</a></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li><div style="opacity: 1;">THE TEAM</div></li>
+          <li id="marta"><div>MARTA</div><a>mrs@mrs-id.com</a></li>
+          <li id="dulce"><div>DULCE</div><a>dulce@mrs-id.com</a></li>
+          <li id="joel"><div>JOEL</div><a>joel@mrs-id.com</a></li>
         </ul>
       </div>
 
@@ -63,16 +64,13 @@
       <div style="max-width: 1000px; margin: auto">
         <div style="font-size: 40px; font-family: Oswald; color: #999; padding-top: 100px;">PROJECTS</div>
         <div id="projects-description" class="text"></div>
-        <hr style="margin: auto; width: 90vw; max-width: 1500px"/>
+        <hr style="margin: auto; width: 90vw; max-width: 1000px"/>
       </div>
 
       <div class="projects">
         <ul>
-          <li>HOUSE</li>
-          <li>HOUSE</li>
-          <li>HOUSE</li>
-          <li>HOUSE</li>
-          <li>HOUSE</li>
+          <li><div>HOUSE</div><img /></li>
+          
           <li>SEE MORE &raquo</li>
         </ul>
       </div>
@@ -90,12 +88,20 @@
       //form
       $(".team ul li").click(function()
       {
+        $("#form-profile").attr("src", "profiles/" + this.id + "/" + this.id + ".jpg");
+        $("#form-title").text(this.id.toUpperCase());
         $(".form").show(300);
       });
 
-      $("#form-clear").click(function()
+      $(".form i").click(function()
       {
         $(".form").hide(300);
+      });
+
+      //team
+      $(".team ul li:gt(0)").each(function(i, elem)
+      {
+        $(elem).css("background-image", "url(profiles/" + elem.id + "/" + elem.id + ".jpg)");
       });
 
       //header
@@ -118,9 +124,8 @@
       //debug
       $("#debug").click(function()  {
         console.log("Debugging");
-        $(".debug").css("border", "1px solid red");
+        $("*").toggleClass("debug");
       });
-
 
     });
 
