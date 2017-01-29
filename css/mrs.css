@@ -23,11 +23,11 @@ body
   bottom: 0;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.98);
-  overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
   border-radius: 5px;
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .form div
@@ -53,7 +53,8 @@ body
   bottom: 0;
   margin: 0 0 5vh 5vw;
   width: 40vw;
-  height: 40vh;
+  height: 60vh;
+  min-height: 300px;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
@@ -64,28 +65,63 @@ body
 {
   display: inline-block;
   font-family: Oswald;
-  font-size: calc(4vw + 40px);
+  font-size: calc(4vw + 30px);
   color: #444;
 }
 
 .form div p
 {
-  font-family: Oswald;
-  font-size: calc(0.7vw + 10px);
+  font-family: 'Lora', serif;
+  font-size: calc(0.5vw + 10px);
 }
 
 .form i
 {
   position: absolute;
   cursor: pointer;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: 0;
+  padding: 8px;
   transition: 0.3s;
 }
 
 .form i:hover
 {
-  color: red;
+  background-color: #D50000;
+  color: white; 
+}
+
+.form-projects
+{
+  position: fixed;
+  width: 95vw;
+  height: 95vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.form-projects i
+{
+  position: absolute;
+  padding: 8px;
+  top: 0;
+  right: 0;
+  transition: 0.3s;
+}
+
+.form-projects i:hover
+{
+  background-color: #D50000;
+  color: white; 
 }
 
 .content
@@ -95,48 +131,65 @@ body
 
 .header
 {
+  box-sizing: border-box; 
+  position: relative; 
   background-color: var(--color-main);
-  background-image: url("/src/files/1.jpg");
+  background-image: url("/src/files/header.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  padding: 10vh;
 }
 
 .title-container
 {
   position: relative;
   text-align: center;
-  top: 50%;
-  transform: translate(0, -50%);
+  width: 100%;  
+  height: 100%;
 }
 
 .title
 {
   font-family: Oswald;
-  font-size: 60pt;
+  font-size: 10vmax;
   color: var(--color-main);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-height: 500px), (max-width: 500px)
+{
+  .header
+  {
+    padding: 0 0 10vh 0;
+  }
+}
+
+@media (min-width: 1000px), (min-height: 1000px)
+{
+  .title
+  {
+    font-size: 100px;
+  }
 }
 
 .subtitle
 {
-  margin-bottom: calc((100vh - 500px) * 0.8);
   font-family: Oswald;
   font-size: 20px;
   color: #333;
 }
 
-@media (max-width: 600px)
+.btn-container
 {
-  .title
-  {
-    font-size: 13vw;
-  }
-  .subtitle
-  {
-    font-size: 25px;
-  }
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  bottom: 0;
 }
 
 .btn

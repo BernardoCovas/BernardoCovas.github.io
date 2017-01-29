@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale= 1">
     <title>MRS Interior Design</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Lora|Raleway|Source+Sans+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/mrs.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -23,11 +22,16 @@
 
       <!--form-->
       <div class="form" hidden>
+        <i class="material-icons">clear</i>
         <div>
           <h1 id="form-title">Title</h1>
           <div id="form-profile"></div>
-          <p id="form-description">descripton</p>
+          <p id="form-description">Sorry, there was an error. (404)</p>
         </div>
+      </div>
+
+      <!--form-project-->
+      <div class="form-projects" hidden>
         <i class="material-icons">clear</i>
       </div>
 
@@ -36,8 +40,10 @@
         <div class="title-container">
           <div class="title">MARTA ROCHA DOS SANTOS</div>
           <div class="subtitle">Interior Design and Image Consulting</div>
-          <div id="seemore" class="btn">See More</div>
-          <div id="contact" class="btn">Contact</div>
+          <div class="btn-container">
+            <div id="seemore" class="btn">See More</div>
+            <div id="contact" class="btn">Contact</div>
+          </div>
         </div>
       </div>
 
@@ -85,25 +91,6 @@
     <script>
     $(document).ready(function()
     {
-      //form
-      $(".team ul li:gt(0)").click(function()
-      {
-        $("#form-profile").css("background-image", "url(profiles/" + this.id + "/profile.jpg)");
-        $("#form-title").text(this.id.toUpperCase());
-        $("#form-description").load("/profiles/" + this.id + "/description.txt");
-        $(".form").fadeIn(150);
-      });
-
-      $(".form i").click(function()
-      {
-        $(".form").fadeOut(150);
-      });
-
-      //team
-      $(".team ul li:gt(0)").each(function(i, elem)
-      {
-        $(elem).css("background-image", "url(profiles/" + elem.id + "/profile.jpg)");
-      });
 
       //header
       $("#seemore").click(function()
@@ -119,12 +106,45 @@
       //description
       $("#description-text").load("/src/files/description.txt");
       
+      //team
+      $(".team ul li:gt(0)").each(function(i, elem)
+      {
+        $(elem).css("background-image", "url(profiles/" + elem.id + "/profile.jpg)");
+      });
+
+      //form-team
+      $(".team ul li:gt(0)").click(function()
+      {
+        $("#form-profile").css("background-image", "url(profiles/" + this.id + "/profile.jpg)");
+        $("#form-title").text(this.id.toUpperCase());
+        $("#form-description").text("Sorry, there was an error. (404)");
+        $("#form-description").load("/profiles/" + this.id + "/description.txt");
+        $(".form").fadeIn(150);
+      });
+
+      $(".form i").click(function()
+      {
+        $(".form").fadeOut(150);
+      });
+
       //projects
       $("#projects-description").load("/src/files/projects-description.txt");
       $(".projects ul li").each(function(i, elem)
       {
         $(elem).css("background-image", "url(projects/" + elem.id + "/picture.jpg)");
       });
+
+      //form-projects
+      $(".projects ul li").click(function()
+        {
+          $(".form-projects").fadeIn(150);
+        }
+      );
+
+      $(".form-projects i").click(function()
+      {
+        $(".form-projects").fadeOut(150);
+      })
 
       //debug
       $("#debug").click(function()  {
