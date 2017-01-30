@@ -89,7 +89,7 @@
 
       <div class="projects">
         <ul>
-          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div></li>
+          <li id="palacio_ajuda"><div>PALACIO AJUDA</div></li>
           <li id="solplay"><div>SOLPAY</div></li>
         </ul>
       </div>
@@ -151,9 +151,8 @@
       $(".projects ul li").click(function()
       {
         idx = $(this).index();
-        console.log(idx);
         $(".form-projects .form-content img").attr("src", "projects/" + this.id + "/picture.jpg").fadeIn(300);
-        $("#form-projects-title").text(this.id.toUpperCase());
+        $("#form-projects-title").text(this.id.replace("_", " ").toUpperCase());
         $(".form-projects").fadeIn(150);
       });
         
@@ -163,10 +162,9 @@
         {
           return;
         }
-        idx++;
-        console.log(idx);          
+        idx++;       
         $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
-        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").toUpperCase());
+        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").replace("_", " ").toUpperCase());
       });
 
       $("#form-projects-previous").click(function()
@@ -176,9 +174,8 @@
           return;
         }
         idx--;
-        console.log(idx);
         $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
-        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").toUpperCase());
+        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").replace("_", " ").toUpperCase());
       });
 
 
