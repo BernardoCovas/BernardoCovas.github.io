@@ -22,8 +22,10 @@
 
       <!--form-->
       <div class="form" hidden>
-        <i class="material-icons">clear</i>
-        <div>
+        <div class="top-bar">
+          <i class="material-icons">clear</i>
+        </div>
+        <div class="form-content">
           <h1 id="form-title">Title</h1>
           <div id="form-profile"></div>
           <p id="form-description">Sorry, there was an error. (404)</p>
@@ -32,7 +34,17 @@
 
       <!--form-project-->
       <div class="form-projects" hidden>
-        <i class="material-icons">clear</i>
+        <div class="top-bar">
+          <i class="material-icons">clear</i>
+        </div>
+        <div class="form-content">
+          <h1 id="form-projects-title">(404)</h1>
+          <img hidden />
+        </div>
+        <div class="form-btn-container">
+          <div id="form-projects-previous" class="form-btn">Previous</div>
+          <div id="form-projects-next" class="form-btn" style="float: right;">Next</div>
+        </div>
       </div>
 
       <!--header-->
@@ -77,8 +89,8 @@
 
       <div class="projects">
         <ul>
-          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div><a>mrs@mrs-id.com</a></li>
-          <li id="solplay"><div>SOLPAY</div><a>dulce@mrs-id.com</a></li>
+          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div></li>
+          <li id="solplay"><div>SOLPAY</div></li>
         </ul>
       </div>
 
@@ -136,10 +148,27 @@
 
       //form-projects
       $(".projects ul li").click(function()
+      {
+        var idx = $(this).index();
+        $(".form-projects .form-content img").attr("src", "projects/" + this.id + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text(this.id.toUpperCase());
+        $(".form-projects").fadeIn(150);
+        
+        $("#form-projects-next").click(function()
         {
-          $(".form-projects").fadeIn(150);
-        }
-      );
+          idx++;
+          $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
+          $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").toUpperCase());
+        });
+
+        $("#form-projects-previous").click(function()
+        {
+          idx--;
+          $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
+          $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").toUpperCase());
+        });
+      });
+
 
       $(".form-projects i").click(function()
       {
