@@ -22,8 +22,10 @@
 
       <!--form-->
       <div class="form" hidden>
-        <i class="material-icons">clear</i>
-        <div>
+        <div class="top-bar">
+          <i class="material-icons">clear</i>
+        </div>
+        <div class="form-content">
           <h1 id="form-title">Title</h1>
           <div id="form-profile"></div>
           <p id="form-description">Sorry, there was an error. (404)</p>
@@ -32,7 +34,17 @@
 
       <!--form-project-->
       <div class="form-projects" hidden>
-        <i class="material-icons">clear</i>
+        <div class="top-bar">
+          <i class="material-icons">clear</i>
+        </div>
+        <div class="form-content">
+          <h1 id="form-projects-title">(404)</h1>
+          <img hidden />
+        </div>
+        <div class="form-btn-container">
+          <div id="form-projects-previous" class="form-btn">Previous</div>
+          <div id="form-projects-next" class="form-btn" style="float: right;">Next</div>
+        </div>
       </div>
 
       <!--header-->
@@ -64,6 +76,7 @@
           <li id="joel"><div>JOEL</div><a>joel@mrs-id.com</a></li>
           <li id="ines"><div>INÊS</div><a>ines@mrs-id.com</a></li>
           <li id="jorge"><div>JORGE</div><a>jfp@mrs-id.com</a></li>
+          <li id="pedro"><div>PEDRO</div><a>pedro@mrs-id.com</a></li>
         </ul>
       </div>
 
@@ -77,8 +90,15 @@
 
       <div class="projects">
         <ul>
-          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div><a>mrs@mrs-id.com</a></li>
-          <li id="solplay"><div>SOLPAY</div><a>dulce@mrs-id.com</a></li>
+          <li id="house_0"><div>HOUSE 0</div></li>
+          <li id="house_1"><div>HOUSE 1</div></li>
+          <li id="house_2"><div>HOUSE 2</div></li>
+          <li id="house_3"><div>HOUSE 3</div></li>
+          <li id="house_4"><div>HOUSE 4</div></li>
+          <li id="house_5"><div>HOUSE 5</div></li>
+          <li id="house_6"><div>HOUSE 6</div></li>
+          <li id="house_7"><div>HOUSE 7</div></li>
+          <li id="house_8"><div>HOUSE 8</div></li>
         </ul>
       </div>
 
@@ -135,11 +155,37 @@
       });
 
       //form-projects
+      var idx;
       $(".projects ul li").click(function()
+      {
+        idx = $(this).index();
+        $(".form-projects .form-content img").attr("src", "projects/" + this.id + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text(this.id.replace("_", " ").toUpperCase());
+        $(".form-projects").fadeIn(150);
+      });
+        
+      $("#form-projects-next").click(function()
+      {
+        if(idx >= $(".projects ul li").length - 1)
         {
-          $(".form-projects").fadeIn(150);
+          return;
         }
-      );
+        idx++;       
+        $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").replace("_", " ").toUpperCase());
+      });
+
+      $("#form-projects-previous").click(function()
+      {
+        if(idx <= 0)
+        {
+          return;
+        }
+        idx--;
+        $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").replace("_", " ").toUpperCase());
+      });
+
 
       $(".form-projects i").click(function()
       {

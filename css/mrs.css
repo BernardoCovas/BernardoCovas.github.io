@@ -27,10 +27,18 @@ body
   z-index: 1;
   border-radius: 5px;
   overflow: hidden;
-  overflow-y: scroll;
 }
 
-.form div
+.form .top-bar
+{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.form .form-content
 {
   position: absolute;
   display: inline-block;
@@ -41,17 +49,18 @@ body
   width: 90%;
   height: 90%;
   margin: 40px auto;
+  overflow-y: scroll;
 }
 
-.form div div
+.form .form-content div
 {
   position: relative;
   float: right;
   right: 0;
   left: 0;
-  top: 0;
+  top: 40px;
   bottom: 0;
-  margin: 0 0 5vh 5vw;
+  margin: 0 0 10vh 5vw;
   width: 40vw;
   height: 60vh;
   min-height: 300px;
@@ -61,31 +70,31 @@ body
   background-position-x: center;
 }
 
-.form div h1
+.form .form-content h1
 {
+  position: relative;
   display: inline-block;
   font-family: Oswald;
   font-size: calc(4vw + 30px);
   color: #444;
 }
 
-.form div p
+.form .form-content p
 {
   font-family: 'Lora', serif;
   font-size: calc(0.5vw + 10px);
 }
 
-.form i
+.form .top-bar i
 {
-  position: absolute;
+  position: relative;
   cursor: pointer;
-  top: 0;
-  right: 0;
+  float: right;
   padding: 8px;
   transition: 0.3s;
 }
 
-.form i:hover
+.form .top-bar i:hover
 {
   background-color: #D50000;
   color: white; 
@@ -106,22 +115,88 @@ body
   z-index: 1;
   border-radius: 5px;
   overflow: hidden;
-  overflow-y: scroll;
 }
 
-.form-projects i
+.form-projects .top-bar
 {
   position: absolute;
+  background-color: white;
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.form-projects .top-bar i
+{
+  position: relative;
   padding: 8px;
-  top: 0;
-  right: 0;
+  float: right;
   transition: 0.3s;
 }
 
-.form-projects i:hover
+.form-projects .top-bar i:hover
 {
   background-color: #D50000;
   color: white; 
+}
+
+.form-projects .form-content
+{
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 90%;
+  margin: 40px auto;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  z-index: 0;
+}
+
+.form-projects .form-content img
+{
+  width: 100%;
+}
+
+.form-btn-container
+{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-btn
+{
+  font-family: Oswald;
+  color: #333;
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  width: 80px;
+  margin: 2vh 4vw;
+  color: var(--color-back);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.form-btn:hover
+{
+  background: var(--color-main);
+  color: white;
+}
+
+#form-projects-title
+{
+  font-family: Oswald;
+  color: #444;
+  font-size: calc(4vmax + 10px);
 }
 
 .content
