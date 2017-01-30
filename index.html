@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale= 1">
     <title>MRS Interior Design</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Lora|Raleway|Source+Sans+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/mrs.css" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -23,12 +22,29 @@
 
       <!--form-->
       <div class="form" hidden>
-        <div>
+        <div class="top-bar">
+          <i class="material-icons">clear</i>
+        </div>
+        <div class="form-content">
           <h1 id="form-title">Title</h1>
           <div id="form-profile"></div>
-          <p id="form-description">descripton</p>
+          <p id="form-description">Sorry, there was an error. (404)</p>
         </div>
-        <i class="material-icons">clear</i>
+      </div>
+
+      <!--form-project-->
+      <div class="form-projects" hidden>
+        <div class="top-bar">
+          <i class="material-icons">clear</i>
+        </div>
+        <div class="form-content">
+          <h1 id="form-projects-title">(404)</h1>
+          <img hidden />
+        </div>
+        <div class="form-btn-container">
+          <div id="form-projects-previous" class="form-btn">Previous</div>
+          <div id="form-projects-next" class="form-btn" style="float: right;">Next</div>
+        </div>
       </div>
 
       <!--header-->
@@ -36,8 +52,10 @@
         <div class="title-container">
           <div class="title">MARTA ROCHA DOS SANTOS</div>
           <div class="subtitle">Interior Design and Image Consulting</div>
-          <div id="seemore" class="btn">See More</div>
-          <div id="contact" class="btn">Contact</div>
+          <div class="btn-container">
+            <div id="seemore" class="btn">See More</div>
+            <div id="contact" class="btn">Contact</div>
+          </div>
         </div>
       </div>
 
@@ -71,8 +89,8 @@
 
       <div class="projects">
         <ul>
-          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div><a>mrs@mrs-id.com</a></li>
-          <li id="solplay"><div>SOLPAY</div><a>dulce@mrs-id.com</a></li>
+          <li id="palacio-ajuda"><div>PALACIO-AJUDA</div></li>
+          <li id="solplay"><div>SOLPAY</div></li>
         </ul>
       </div>
 
@@ -85,25 +103,6 @@
     <script>
     $(document).ready(function()
     {
-      //form
-      $(".team ul li:gt(0)").click(function()
-      {
-        $("#form-profile").css("background-image", "url(profiles/" + this.id + "/profile.jpg)");
-        $("#form-title").text(this.id.toUpperCase());
-        $("#form-description").load("/profiles/" + this.id + "/description.txt");
-        $(".form").fadeIn(150);
-      });
-
-      $(".form i").click(function()
-      {
-        $(".form").fadeOut(150);
-      });
-
-      //team
-      $(".team ul li:gt(0)").each(function(i, elem)
-      {
-        $(elem).css("background-image", "url(profiles/" + elem.id + "/profile.jpg)");
-      });
 
       //header
       $("#seemore").click(function()
@@ -119,12 +118,74 @@
       //description
       $("#description-text").load("/src/files/description.txt");
       
+      //team
+      $(".team ul li:gt(0)").each(function(i, elem)
+      {
+        $(elem).css("background-image", "url(profiles/" + elem.id + "/profile.jpg)");
+      });
+
+      //form-team
+      $(".team ul li:gt(0)").click(function()
+      {
+        $("#form-profile").css("background-image", "url(profiles/" + this.id + "/profile.jpg)");
+        $("#form-title").text(this.id.toUpperCase());
+        $("#form-description").text("Sorry, there was an error. (404)");
+        $("#form-description").load("/profiles/" + this.id + "/description.txt");
+        $(".form").fadeIn(150);
+      });
+
+      $(".form i").click(function()
+      {
+        $(".form").fadeOut(150);
+      });
+
       //projects
       $("#projects-description").load("/src/files/projects-description.txt");
       $(".projects ul li").each(function(i, elem)
       {
         $(elem).css("background-image", "url(projects/" + elem.id + "/picture.jpg)");
       });
+
+      //form-projects
+      var idx;
+      $(".projects ul li").click(function()
+      {
+        idx = $(this).index();
+        console.log(idx);
+        $(".form-projects .form-content img").attr("src", "projects/" + this.id + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text(this.id.toUpperCase());
+        $(".form-projects").fadeIn(150);
+      });
+        
+      $("#form-projects-next").click(function()
+      {
+        if(idx >= $(".projects ul li").length - 1)
+        {
+          return;
+        }
+        idx++;
+        console.log(idx);          
+        $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").toUpperCase());
+      });
+
+      $("#form-projects-previous").click(function()
+      {
+        if(idx <= 0)
+        {
+          return;
+        }
+        idx--;
+        console.log(idx);
+        $(".form-projects .form-content img").attr("src", "projects/" + $(".projects ul li:eq(" + idx +")").attr("id") + "/picture.jpg").fadeIn(300);
+        $("#form-projects-title").text($(".projects ul li:eq(" + idx + ")").attr("id").toUpperCase());
+      });
+
+
+      $(".form-projects i").click(function()
+      {
+        $(".form-projects").fadeOut(150);
+      })
 
       //debug
       $("#debug").click(function()  {

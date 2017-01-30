@@ -23,14 +23,22 @@ body
   bottom: 0;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.98);
-  overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
   border-radius: 5px;
-  overflow: scroll;
+  overflow: hidden;
 }
 
-.form div
+.form .top-bar
+{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.form .form-content
 {
   position: absolute;
   display: inline-block;
@@ -41,51 +49,154 @@ body
   width: 90%;
   height: 90%;
   margin: 40px auto;
+  overflow-y: scroll;
 }
 
-.form div div
+.form .form-content div
 {
   position: relative;
   float: right;
   right: 0;
   left: 0;
-  top: 0;
+  top: 40px;
   bottom: 0;
   margin: 0 0 5vh 5vw;
   width: 40vw;
-  height: 40vh;
+  height: 60vh;
+  min-height: 300px;
   overflow: hidden;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
 }
 
-.form div h1
+.form .form-content h1
 {
+  position: relative;
   display: inline-block;
   font-family: Oswald;
-  font-size: calc(4vw + 40px);
+  font-size: calc(4vw + 30px);
   color: #444;
 }
 
-.form div p
+.form .form-content p
 {
-  font-family: Oswald;
-  font-size: calc(0.7vw + 10px);
+  font-family: 'Lora', serif;
+  font-size: calc(0.5vw + 10px);
 }
 
-.form i
+.form .top-bar i
 {
-  position: absolute;
+  position: relative;
   cursor: pointer;
-  top: 10px;
-  right: 10px;
+  float: right;
+  padding: 8px;
   transition: 0.3s;
 }
 
-.form i:hover
+.form .top-bar i:hover
 {
-  color: red;
+  background-color: #D50000;
+  color: white; 
+}
+
+.form-projects
+{
+  position: fixed;
+  width: 95vw;
+  height: 95vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.form-projects .top-bar
+{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.form-projects .top-bar i
+{
+  position: relative;
+  padding: 8px;
+  float: right;
+  transition: 0.3s;
+}
+
+.form-projects .top-bar i:hover
+{
+  background-color: #D50000;
+  color: white; 
+}
+
+.form-projects .form-content
+{
+  position: absolute;
+  display: inline-block;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 90%;
+  margin: 40px auto;
+  overflow-y: scroll;
+  padding-bottom: 100px;
+  z-index: 0;
+}
+
+.form-projects .form-content img
+{
+  width: 100%;
+}
+
+.form-btn-container
+{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-btn
+{
+  font-family: Lora;
+  float: left;
+  height: 20px;
+  width: 80px;
+  border: 2px solid var(--color-main);
+  border-radius: 10px;
+  margin: 10px;
+  color: var(--color-back);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.form-btn:hover
+{
+  background: var(--color-main);
+  color: white;
+}
+
+#form-projects-title
+{
+  font-family: Oswald;
+  color: #444;
+  font-size: calc(4vmax + 10px);
 }
 
 .content
@@ -95,48 +206,65 @@ body
 
 .header
 {
+  box-sizing: border-box; 
+  position: relative; 
   background-color: var(--color-main);
-  background-image: url("/src/files/1.jpg");
+  background-image: url("/src/files/header.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   height: 100vh;
   width: 100vw;
+  padding: 10vh;
 }
 
 .title-container
 {
   position: relative;
   text-align: center;
-  top: 50%;
-  transform: translate(0, -50%);
+  width: 100%;  
+  height: 100%;
 }
 
 .title
 {
   font-family: Oswald;
-  font-size: 60pt;
+  font-size: 10vmax;
   color: var(--color-main);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-height: 500px), (max-width: 500px)
+{
+  .header
+  {
+    padding: 0 0 10vh 0;
+  }
+}
+
+@media (min-width: 1000px), (min-height: 1000px)
+{
+  .title
+  {
+    font-size: 100px;
+  }
 }
 
 .subtitle
 {
-  margin-bottom: calc((100vh - 500px) * 0.8);
   font-family: Oswald;
   font-size: 20px;
   color: #333;
 }
 
-@media (max-width: 600px)
+.btn-container
 {
-  .title
-  {
-    font-size: 13vw;
-  }
-  .subtitle
-  {
-    font-size: 25px;
-  }
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  bottom: 0;
 }
 
 .btn
